@@ -6,6 +6,6 @@ RUN sudo apt-get update
 
 RUN sudo apt-get install lammps-stable
 
-ENTRYPOINT ['lmp_stable']
+ENTRYPOINT [ "lmp_stable" ]
 
-CMD ['-help']
+CMD [ "-help" ]
