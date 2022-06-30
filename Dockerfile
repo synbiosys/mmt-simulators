@@ -1,7 +1,7 @@
 FROM ubuntu:focal AS lammps
 
-RUN sudo apt update
-RUN sudo apt install -y software-properties-common 
+RUN apt update
+RUN apt install -y software-properties-common 
 RUN sudo add-apt-repository ppa:gladky-anton/lammps
 RUN sudo add-apt-repository ppa:openkim/latest
 
