@@ -1,4 +1,4 @@
-name: Docker-Lammps
+name: Docker-codeaster
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -70,9 +70,9 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/synbiosys/mmt-lammps:latest
+          tags: ghcr.io/synbiosys/mmt-codeaster:latest
           labels: ${{ steps.meta.outputs.labels }}
-          target: lammps
+          target: codeaster
           build-args: |
             ROOT_URL=http://localhost:5001
 
