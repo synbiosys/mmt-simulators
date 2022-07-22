@@ -1,4 +1,4 @@
-name: Docker-Lammps
+name: Docker-codeaster
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -42,37 +42,37 @@ jobs:
       #        mv environments/${{ github.ref_name }}/Dockerfile Dockerfile
       #        mv environments/${{ github.ref_name }}/server.conf server.conf
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+      #- name: Set up QEMU
+      #  uses: docker/setup-qemu-action@v2
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Log into registry ${{ env.REGISTRY }}
+      #  if: github.event_name != 'pull_request'
+      #  uses: docker/login-action@v2
+      #  with:
+      #    registry: ${{ env.REGISTRY }}
+      #    username: ${{ github.actor }}
+      #    password: ${{ secrets.GITHUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      #- name: Extract Docker metadata
+      #  id: meta
+      #  uses: docker/metadata-action@v4
+      #  with:
+      #    images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker-client image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/synbiosys/mmt-lammps:latest
-          labels: ${{ steps.meta.outputs.labels }}
-          target: lammps
+      #- name: Build and push Docker-client image
+      #  uses: docker/build-push-action@v3
+      #  with:
+       #   context: .
+      #    push: ${{ github.event_name != 'pull_request' }}
+      #    tags: ghcr.io/synbiosys/mmt-codeaster:latest
+      #    labels: ${{ steps.meta.outputs.labels }}
+      #    target: codeaster
 
 
       #- run: |
