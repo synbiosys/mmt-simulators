@@ -9,11 +9,11 @@ on:
 #   schedule:
 #     - cron: '32 11 * * *'
   push:
-    branches: [ prod, dev ]
+    branches: [ main, dev ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ prod, dev ]
+    branches: [ main, dev ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -73,8 +73,6 @@ jobs:
           tags: ghcr.io/synbiosys/mmt-lammps:latest
           labels: ${{ steps.meta.outputs.labels }}
           target: lammps
-          build-args: |
-            ROOT_URL=http://localhost:5001
 
 
       #- run: |
